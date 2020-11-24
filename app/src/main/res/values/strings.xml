@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Agenda Fuzari</string>
+    <string name="lista_alunos_title">Lista de Alunos</string>
+    <string name="lista_alunos_menu_remover">Remover</string>
+    <string name="lista_alunos_removendo_aluno">Removendo Aluno</string>
+    <string name="lista_alunos_deseja_remover_aluno">Tem certeza que quer remover o aluno?</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="cadastro_aluno_title">Novo Aluno</string>
+    <string name="edicao_aluno_title">Edita Aluno</string>
+    <string name="formulario_alunos_nome">Nome</string>
+    <string name="formulario_alunos_telefone">Telefone</string>
+    <string name="formulario_alunos_email">E-mail</string>
+    <string name="salvo_com_sucesso">Salvo com sucesso!</string>
+    <string name="atualizado_com_sucesso">Atualizado com sucesso!</string>
+    <string name="removido_com_sucesso">Removido com sucesso!</string>
+    <string name="activity_formulario_titulo_salvar_o_aluno">Salvar o aluno</string>
+</resources>

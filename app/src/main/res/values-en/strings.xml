@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Contacts Fuzari</string>
+    <string name="lista_alunos_title">Students List</string>
+    <string name="lista_alunos_menu_remover">Remove</string>
+    <string name="lista_alunos_removendo_aluno">Removing student</string>
+    <string name="lista_alunos_deseja_remover_aluno">Confirm student deletion?</string>
+    <string name="sim">Yes</string>
+    <string name="nao">No</string>
+    <string name="cadastro_aluno_title">New Student</string>
+    <string name="edicao_aluno_title">Edit Student</string>
+    <string name="formulario_alunos_nome">Name</string>
+    <string name="formulario_alunos_telefone">Phone</string>
+    <string name="formulario_alunos_email">E-mail</string>
+    <string name="salvo_com_sucesso">Successfully saved.</string>
+    <string name="atualizado_com_sucesso">Successfully edited.</string>
+    <string name="removido_com_sucesso">Successfully removed.</string>
+    <string name="activity_formulario_titulo_salvar_o_aluno">Save student</string>
+</resources>
