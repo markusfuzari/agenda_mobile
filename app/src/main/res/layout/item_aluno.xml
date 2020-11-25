@@ -12,7 +12,7 @@
         android:textSize="24dp"
         android:layout_margin="8dp"
         android:layout_marginBottom="0dp"
-        />
+        tools:ignore="SpUsage" />
 
     <TextView
         android:id="@+id/item_aluno_ntelefone"

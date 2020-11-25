@@ -2,7 +2,6 @@ package br.com.fuzari.agenda.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import br.com.fuzari.agenda.R;
 import br.com.fuzari.agenda.models.Aluno;

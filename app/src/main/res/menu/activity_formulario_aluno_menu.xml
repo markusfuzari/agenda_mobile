@@ -5,5 +5,5 @@
         android:id="@+id/activity_formulario_aluno_menu_salvar"
         android:icon="@drawable/ic_action_salvar_aluno"
         android:title="@string/activity_formulario_titulo_salvar_o_aluno"
-        app:showAsAction="always"></item>
+        app:showAsAction="always" />
 </menu>

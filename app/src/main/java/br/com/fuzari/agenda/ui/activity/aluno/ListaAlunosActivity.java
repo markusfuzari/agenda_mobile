@@ -1,8 +1,6 @@
 package br.com.fuzari.agenda.ui.activity.aluno;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -65,12 +63,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     private void configurarFabNovoAluno() {
         FloatingActionButton fab = findViewById(R.id.activity_lista_alunos_fab_novo_aluno);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                abrirFormulario(null);
-            }
-        });
+        fab.setOnClickListener(view -> abrirFormulario(null));
     }
 
     private void abrirFormulario(Aluno aluno) {
@@ -89,15 +82,10 @@ public class ListaAlunosActivity extends AppCompatActivity {
     }
 
     private void confirmarRemocao(Aluno aluno){
-        AlertDialog alertDialog = new AlertDialog.Builder(this)
+        new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.lista_alunos_removendo_aluno))
                 .setMessage(getString(R.string.lista_alunos_deseja_remover_aluno))
-                .setPositiveButton(getString(R.string.sim), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        removeAlunoDaLista(aluno);
-                    }
-                })
+                .setPositiveButton(getString(R.string.sim), (dialogInterface, i) -> removeAlunoDaLista(aluno))
                 .setNegativeButton(getString(R.string.nao), null)
                 .show();
     }
@@ -109,12 +97,9 @@ public class ListaAlunosActivity extends AppCompatActivity {
     }
 
     private void configuraListenerDeCliquePorItem(ListView listaAlunos) {
-        listaAlunos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int posicaoElemento, long id) {
-                Aluno aluno = (Aluno) adapterView.getItemAtPosition(posicaoElemento);
-                abrirFormulario(aluno);
-            }
+        listaAlunos.setOnItemClickListener((adapterView, view, posicaoElemento, id) -> {
+            Aluno aluno = (Aluno) adapterView.getItemAtPosition(posicaoElemento);
+            abrirFormulario(aluno);
         });
     }
 

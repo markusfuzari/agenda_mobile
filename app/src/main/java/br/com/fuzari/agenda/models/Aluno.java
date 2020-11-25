@@ -3,8 +3,7 @@ package br.com.fuzari.agenda.models;
 import java.io.Serializable;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 
 @Data
 public class Aluno implements Serializable {
