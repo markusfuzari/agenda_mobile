@@ -1,4 +1,4 @@
-package br.com.fuzari.agenda.ui.activity.aluno.adapters;
+package br.com.fuzari.agenda.ui.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

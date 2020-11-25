@@ -1,14 +1,11 @@
-package br.com.fuzari.agenda.ui.activity.aluno;
+package br.com.fuzari.agenda.ui.activity;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -16,16 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import br.com.fuzari.agenda.R;
-import br.com.fuzari.agenda.dao.AlunoDAO;
 import br.com.fuzari.agenda.models.Aluno;
-import br.com.fuzari.agenda.ui.activity.aluno.adapters.ListaAlunosAdapter;
+import br.com.fuzari.agenda.ui.views.ListaAlunosView;
 
-import static br.com.fuzari.agenda.ui.activity.aluno.ContantesActivities.CHAVE_ALUNO;
+import static br.com.fuzari.agenda.ui.activity.ContantesActivities.CHAVE_ALUNO;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
-    private final AlunoDAO dao = new AlunoDAO();
-    private ListaAlunosAdapter adapter;
+    private final ListaAlunosView listaAlunosView = new ListaAlunosView(this);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +33,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        atualizaListaDeAlunos();
+        listaAlunosView.atualizaListaDeAlunos();
     }
 
     @Override
@@ -50,15 +45,9 @@ public class ListaAlunosActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_context_remover) {
-            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-            Aluno alunoSelecionado = adapter.getItem(menuInfo.position);
-            confirmarRemocao(alunoSelecionado);
+            listaAlunosView.confirmarRemocao(item);
         }
         return super.onContextItemSelected(item);
-    }
-
-    private void atualizaListaDeAlunos() {
-        adapter.atualiza(dao.todos());
     }
 
     private void configurarFabNovoAluno() {
@@ -76,25 +65,11 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     private void configuraLista() {
         ListView listaDeAlunos = findViewById(R.id.activity_lista_alunos_listview);
-        configuraAdapter(listaDeAlunos);
+        listaAlunosView.configuraAdapter(listaDeAlunos);
         configuraListenerDeCliquePorItem(listaDeAlunos);
         registerForContextMenu(listaDeAlunos);
     }
 
-    private void confirmarRemocao(Aluno aluno){
-        new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.lista_alunos_removendo_aluno))
-                .setMessage(getString(R.string.lista_alunos_deseja_remover_aluno))
-                .setPositiveButton(getString(R.string.sim), (dialogInterface, i) -> removeAlunoDaLista(aluno))
-                .setNegativeButton(getString(R.string.nao), null)
-                .show();
-    }
-
-    private void removeAlunoDaLista(Aluno aluno) {
-        dao.removerAluno(aluno);
-        adapter.remove(aluno);
-        Toast.makeText(ListaAlunosActivity.this, getString(R.string.removido_com_sucesso), Toast.LENGTH_SHORT).show();
-    }
 
     private void configuraListenerDeCliquePorItem(ListView listaAlunos) {
         listaAlunos.setOnItemClickListener((adapterView, view, posicaoElemento, id) -> {
@@ -103,8 +78,4 @@ public class ListaAlunosActivity extends AppCompatActivity {
         });
     }
 
-    private void configuraAdapter(ListView listaAlunos) {
-        adapter = new ListaAlunosAdapter(this);
-        listaAlunos.setAdapter(adapter);
-    }
 }

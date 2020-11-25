@@ -13,13 +13,13 @@
         android:name=".AgendaApplication"
         tools:ignore="AllowBackup">
 
-        <activity android:name=".ui.activity.aluno.ListaAlunosActivity" android:label="@string/lista_alunos_title">
+        <activity android:name=".ui.activity.ListaAlunosActivity" android:label="@string/lista_alunos_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.aluno.FormularioAlunoActivity" android:label="@string/cadastro_aluno_title" />
+        <activity android:name=".ui.activity.FormularioAlunoActivity" android:label="@string/cadastro_aluno_title" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package br.com.fuzari.agenda.ui.activity.aluno;
+package br.com.fuzari.agenda.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import br.com.fuzari.agenda.R;
 import br.com.fuzari.agenda.dao.AlunoDAO;
 import br.com.fuzari.agenda.models.Aluno;
 
-import static br.com.fuzari.agenda.ui.activity.aluno.ContantesActivities.CHAVE_ALUNO;
+import static br.com.fuzari.agenda.ui.activity.ContantesActivities.CHAVE_ALUNO;
 
 public class FormularioAlunoActivity extends AppCompatActivity {
 
